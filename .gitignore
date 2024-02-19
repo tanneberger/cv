@@ -1,0 +1,10 @@
+*.log
+*.cls
+*.blg
+*.bcf
+*.bbl
+*.aux
+*.gz
+*.xml
+*.pdf
+*.out
