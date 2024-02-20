@@ -1,26 +1,32 @@
-\documentclass[11pt, a4paper, oneside]{report}
-
-\pagestyle{plain}
+\documentclass[11pt, a4paper, oneside]{article}
 
 \usepackage[utf8]{inputenc}
 \usepackage[margin=0.8in]{geometry}
 \usepackage{amsmath,amssymb,amsfonts,amsthm}
-\usepackage{scrlayer-scrpage}
-\usepackage{tikz}
 \usepackage{graphics}
 \usepackage[export]{adjustbox}
 \usepackage{wrapfig}
 \usepackage{hyperref}
-\usepackage[
-backend=biber,
-style=alphabetic,
-sorting=ynt
-]{biblatex}
-\addbibresource{refs.bib}
-
+\usepackage{cite}
+\usepackage{ebgaramond}
+\usepackage[defaultsans]{lato}
 \usepackage{enumerate}
-\pagestyle{scrheadings}
+\usepackage{fancyhdr}
 \usepackage{array}
+\usepackage{etoolbox}
+
+\pagestyle{fancyplain}
+
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[L]{}% Empty left header
+\fancyhead[C]{} % Page numbering for center header  
+\fancyhead[R]{}% Empty right header
+\fancyfoot[L]{}% Empty left footer
+\fancyfoot[C]{\thepage}% Empty center footer
+\fancyfoot[R]{}% Empty left footer
+
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
 
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
@@ -41,7 +47,7 @@ sorting=ynt
 \begin{tabular}{l}
 TUD Dresden University of Technology  \\
 Faculty of Computer Science \\ 
-Chair for Compiler Construction \\ 
+Chair of Compiler Construction \\ 
 \href{mailto: tassilo.tanneberger@tu-dresden.de}{\texttt{tassilo.tanneberger@tu-dresden.de}} \\
 \href{https://tanneberger.me}{\texttt{https://tanneberger.me}} \\
 \href{https://github.com/tanneberger}{\texttt{https://github.com/tanneberger}}
@@ -49,10 +55,9 @@ Chair for Compiler Construction \\
 
 \par\noindent\rule{0.6\textwidth}{0.4pt}
 
-\section*{Interests \& Research Focus}
+\section*{Research Interests}
 
-Domain Specific Languages (DSLs), Distributed Systems, Embedded Systems, Scheduling Theory, RTOS, Deterministic Concurrency. 
-Solving system architecture problems with languages.
+Domain Specific Languages (DSLs), Distributed Systems, Embedded Systems, Scheduling Theory, \\ RTOS,  Deterministic Concurrency.  
 
 \section*{Education}
 
@@ -67,25 +72,39 @@ Solving system architecture problems with languages.
 \section*{Professional Experience}
 
 \begin{tabular}{R{3cm} L{12cm}}
+	2023 	- now				& Co-founder and Member of Board of Directors \\ & DD-IX Dresden Internet Exchange e.V. \\ & \\
 	11/2021 	- now			& Research Student at the Chair for Compiler Construction, \\ 
 										& TUD Dresden University of Technology \\ 
 										& 																			\\
 	4/2021 - 10/2021    & Engineer working on Tooling for Industrial Robots \\ 
-										& Gesellschaft zur Förderung angewandter Informatik e.V. (GFaI)
+										& Society for the Advancement of Applied Computer Science (GFaI)
 \end{tabular}
 
-\section*{Projects \&  Achievements}
+
+\section*{Open Source Projects}
 
 \begin{tabular}{R{3cm} L{13cm}}
-
-	2023 							& DD-IX Dresden Internet Exchange e.V. - Co-Founding and association that operates an Internet Exchange.  \href{https://dd-ix.net}{\texttt{https://dd-ix.net}} \\ & \\
-		2022 							&  Transit Live Mapping Solutions - Reverse Engineering Radio Protocol used for controlling traffic lights in Germany and using this data to create live positional data of trams and buses. \href{https://tlm.solutions}{\texttt{https://map.tlm.solutions}} \\  & \\
-		2021 							& Lingua-Franca - is a polyglot coordination language for reactive, concurrent, and time-sensitive applications. - Tasks ranged from optimizing the C++ runtime to develop a brand new package manager and built tool. \href{https://lf-lang.org}{\texttt{https://lf-lang.org}}
+	2022 							    & TLMS - Transit Live Mapping Solutions \\
+	  										&	\emph{Reverse engineering of the radio protocol used for controlling traffic lights in Germany. Design and implementation of a platform that shows live positions of trams and buses based on this data.} \href{https://map.tlm.solutions}{\texttt{https://tlm.solutions}}  \\  
+	  										& \\
+		2021 							& Lingua-Franca (LF) - a polyglot coordination language for reactive, concurrent, and time-sensitive applications.  \\ 
+											& \emph{Optimization of the C++ runtime environment, development  of  a package manager and built tool for the LF ecosystem.} \href{https://lf-lang.org}{\texttt{https://lf-lang.org}} \\
 \end{tabular}
 
-\section*{Publication List}
+\section*{Extracurricular Activities}
+
+\begin{tabular}{R{3cm} L{13cm}}
+	11/2023 - now   	& Task-Force for the Strategic Development of the Faculty \\ 
+									& Faculty of Computer Science, TUD Dresden University of Technology  \\ & \\
+	11/2022 - now 	    & Member of the Faculty Council \\ 
+									& Faculty of Computer Science, TUD Dresden University of Technology 
+\end{tabular}
+
+
+\section*{Publications}
 
 \nocite{*} 
-\printbibliography[heading=none]
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{refs}{}
 
 \end{document}
